@@ -235,6 +235,10 @@ nav.on {
   position: relative;
   z-index: 2;
   max-width: 1050px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 .hero-chip {
@@ -280,23 +284,28 @@ h1 .out { -webkit-text-stroke: 2px var(--white); color: transparent; }
 .hero-row {
   margin-top: 36px;
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 40px;
   opacity: 0;
   animation: up .9s var(--ease) .5s forwards;
+  width: 100%;
 }
 .hero-p {
   font-size: 1.05rem;
   color: rgba(240,237,232,.6);
   line-height: 1.82;
-  max-width: 400px;
+  max-width: 600px;
+  text-align: center;
 }
 .hero-btns {
   display: flex;
   gap: 12px;
   align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  flex-wrap: wrap;
 }
 .btn-fill {
   background: var(--orange);
@@ -952,7 +961,7 @@ footer {
   .nav-toggle { display: flex; }
   section { padding: 80px 20px; }
   #hero { padding: 80px 20px 56px; }
-  .hero-row { flex-direction: column; align-items: flex-start; }
+  .hero-row { flex-direction: column; align-items: center; justify-content: center; }
   .hero-stats { flex-wrap: wrap; }
   .hs { min-width: 50%; }
   .srv-grid { grid-template-columns: 1fr; }
