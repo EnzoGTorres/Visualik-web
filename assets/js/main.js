@@ -71,6 +71,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.r').forEach(el => revealObserver.observe(el));
 
+
+  /* ─────────────────────────────────────
+     MOBILE MENU
+  ───────────────────────────────────── */
+  const navToggle = document.getElementById('navToggle');
+  const navMenuOverlay = document.getElementById('navMenuOverlay');
+  const navMenu = document.getElementById('navMenu');
+  const body = document.body;
+
+  function toggleMenu() {
+    const isOpen = navMenuOverlay.classList.contains('active');
+    navToggle.classList.toggle('active');
+    navMenuOverlay.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', !isOpen);
+    body.classList.toggle('menu-open', !isOpen);
+  }
+
+  function closeMenu() {
+    navToggle.classList.remove('active');
+    navMenuOverlay.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+    body.classList.remove('menu-open');
+  }
+
+  navToggle.addEventListener('click', toggleMenu);
+
+  navToggle.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleMenu();
+    }
+  });
+
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 960) {
+      closeMenu();
+    }
+  });
+
 });
 
 document.addEventListener('DOMContentLoaded', () => {
